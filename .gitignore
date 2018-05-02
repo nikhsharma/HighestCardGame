@@ -53,7 +53,6 @@ fabric.properties
 .idea/httpRequests
 ### Java template
 # Compiled class file
-*.class
 
 # Log file
 *.log
