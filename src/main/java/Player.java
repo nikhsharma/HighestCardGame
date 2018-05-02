@@ -25,4 +25,13 @@ public class Player {
     public void addCard(Card card){
         this.cards.add(card);
     }
+
+    public int totalCardsValue(){
+        int counter = 0;
+        for (Card card : cards){
+            counter += card.getRank().getValue();
+
+        }
+        return counter;
+    }
 }

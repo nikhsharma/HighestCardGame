@@ -27,32 +27,41 @@ public class Game {
         for (Player player : players){
             Card card = this.deck.removeCard();
             player.addCard(card);
+            Card card2 = this.deck.removeCard();
+            player.addCard(card2);
         }
-    }
-
-    public Card checkCards(){
-        int highestcard = 0;
-        Card winningcard = new Card(Suit.SPADES, Rank.ACE);
-        for (Player player : players){
-            for (Card card : player.getCards()){
-                if (card.getRank().getValue() > highestcard){
-                    winningcard = card;
-                    highestcard = card.getRank().getValue();
-                }
-
-            }
-        }
-      return winningcard;
     }
 
     public Player checkWinner(){
-        Card winningcard = checkCards();
+        int highestHand = 0;
         Player winningPlayer = null;
-        for (Player player: players){
-            if (player.getCards().contains(winningcard)){
+        for (Player player : players){
+
+            if (player.totalCardsValue() > highestHand){
                 winningPlayer = player;
+                highestHand = player.totalCardsValue();
             }
+
+
+//            for (Card card : player.getCards()){
+//                if (card.getRank().getValue() > highestcard){
+//                    winningcard = card;
+//                    highestcard = card.getRank().getValue();
+//                }
+//
+//            }
         }
-        return winningPlayer;
+      return winningPlayer;
     }
+
+//    public Player checkWinner(){
+//        Card winningcard = checkCards();
+//        Player winningPlayer = null;
+//        for (Player player: players){
+//            if (player.getCards().contains(winningcard)){
+//                winningPlayer = player;
+//            }
+//        }
+//        return winningPlayer;
+//    }
 }
