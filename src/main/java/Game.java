@@ -29,4 +29,30 @@ public class Game {
             player.addCard(card);
         }
     }
+
+    public Card checkCards(){
+        int highestcard = 0;
+        Card winningcard = new Card(Suit.SPADES, Rank.ACE);
+        for (Player player : players){
+            for (Card card : player.getCards()){
+                if (card.getRank().getValue() > highestcard){
+                    winningcard = card;
+                    highestcard = card.getRank().getValue();
+                }
+
+            }
+        }
+      return winningcard;
+    }
+
+    public Player checkWinner(){
+        Card winningcard = checkCards();
+        Player winningPlayer = null;
+        for (Player player: players){
+            if (player.getCards().contains(winningcard)){
+                winningPlayer = player;
+            }
+        }
+        return winningPlayer;
+    }
 }
