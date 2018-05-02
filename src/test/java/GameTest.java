@@ -7,12 +7,14 @@ public class GameTest{
 
     Game game;
     Player player;
+    Player player2;
 
     @Before
     public void before(){
 
         game = new Game();
         player = new Player("Nikhil");
+        player2 = new Player("Hadsan");
 
     }
 
@@ -31,6 +33,16 @@ public class GameTest{
         game.addPlayer(player);
         assertEquals(1, game.getPlayers().size());
     }
+
+    @Test
+    public void canDealCardsToPlayers(){
+        game.addPlayer(player);
+        game.addPlayer(player2);
+        game.dealCards();
+        assertEquals(1, player.getNumberOfCards());
+    }
+
+
 }
 
 

@@ -22,4 +22,11 @@ public class Game {
     public void addPlayer(Player player){
         this.players.add(player);
     }
+
+    public void dealCards(){
+        for (Player player : players){
+            Card card = this.deck.removeCard();
+            player.addCard(card);
+        }
+    }
 }

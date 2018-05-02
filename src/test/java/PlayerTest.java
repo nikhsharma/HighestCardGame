@@ -7,11 +7,13 @@ public class PlayerTest {
 
     Player player;
     Deck deck;
+    Card card;
 
     @Before
     public void before(){
         player = new Player("Hadsan");
         deck = new Deck();
+        card = new Card(Suit.SPADES, Rank.NINE);
     }
 
     @Test
@@ -26,7 +28,7 @@ public class PlayerTest {
 
     @Test
     public void canAddCard(){
-        player.addCard(deck);
+        player.addCard(card);
         assertEquals(1, player.getNumberOfCards());
     }
 }

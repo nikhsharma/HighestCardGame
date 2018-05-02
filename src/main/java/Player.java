@@ -22,8 +22,7 @@ public class Player {
         return cards.size();
     }
 
-    public void addCard(Deck deck){
-        Card card = deck.removeCard();
+    public void addCard(Card card){
         this.cards.add(card);
     }
 }
