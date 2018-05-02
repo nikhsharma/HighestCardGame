@@ -18,4 +18,8 @@ public class Game {
     public Deck getDeck(){
         return deck;
     }
+
+    public void addPlayer(Player player){
+        this.players.add(player);
+    }
 }
